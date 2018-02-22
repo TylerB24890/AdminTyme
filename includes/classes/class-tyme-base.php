@@ -28,6 +28,7 @@ class Tyme_Base {
    */
   private function run_admin() {
     require_once(TYME_INC . 'classes/class-tyme-admin-init.php');
+    new \Tyme\TymeAdmin\Admin\Tyme_Admin_Init;
   }
 }
 

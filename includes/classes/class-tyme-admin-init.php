@@ -5,9 +5,18 @@ namespace Tyme\TymeAdmin\Admin;
 class Tyme_Admin_Init {
 
   public function __construct() {
+    add_action('admin_init', array($this, 'load_admin_files'));
     add_action('admin_menu', array($this, 'add_menu_items'));
     add_action('admin_enqueue_scripts', array($this, 'enqueue_styles'));
     add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+  }
+
+  public function load_admin_files() {
+    require TYME_INC . 'classes/class-tyme-themes.php';
+    require TYME_INC . 'classes/class-tyme-customizer.php';
+    
+    new Themes\Tyme_Themes;
+    new Customizer\Tyme_Customizer;
   }
 
   /**
@@ -102,5 +111,3 @@ class Tyme_Admin_Init {
 		include_once(TYME_INC . 'partials/' . TYME_SLUG . '-customizer.php');
 	}
 }
-
-new Tyme_Admin_Init;
