@@ -1,0 +1,27 @@
+{
+	"name": "tyme-admin",
+	"description": "Customize your WordPress Admin with your own color schemes or customize a pre-built theme provided.",
+	"version": "0.1.0",
+	"type": "wordpress-plugin",
+	"keywords": [],
+	"homepage": "https://tylerb.me",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Tyler Bailey",
+			"email": "tylerb.media@gmail.com",
+			"homepage": "https://tylerb.me",
+			"role": "Developer"
+		}
+	],
+    "minimum-stability": "dev",
+	"require": {
+		"php": ">=5.6"
+	},
+    "require-dev": {
+	    "antecedent/patchwork": "1.2.*",
+        "phpunit/phpunit"     : "*@stable",
+	    "brianium/paratest"   : "dev-master",
+        "10up/wp_mock"        : "dev-master"
+    }
+}
