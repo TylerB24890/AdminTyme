@@ -43,41 +43,11 @@ function i18n() {
  * @return void
  */
 function activate() {
-	require TYME_INC . 'classes/class-tyme-styles.php';
-	$styles = new \Tyme\TymeAdmin\Admin\Styles\Tyme_Styles;
+	require_once TYME_INC . 'classes/class-tyme-base.php';
 
-	// Global Body Styles
-	update_option('tyme-background', $styles::$default_styles['body']['background']);
-	update_option('tyme-font-family', $styles::$default_styles['body']['font-family']);
-	update_option('tyme-font-color', $styles::$default_styles['body']['color']);
-	update_option('tyme-font-size', $styles::$default_styles['body']['font-size']);
-
-	// Headers
-	update_option('tyme-headers-color', $styles::$default_styles['headers']['color']);
-
-	// Global Link Styles
-	update_option('tyme-links-color', $styles::$default_styles['links']['color']);
-	update_option('tyme-links-text-decoration', $styles::$default_styles['links']['text-decoration']);
-	update_option('tyme-links-hover-color', $styles::$default_styles['links']['hover']['color']);
-	update_option('tyme-links-hover-text-decoration', $styles::$default_styles['links']['hover']['text-decoration']);
-
-	// Nav Styles
-	update_option('tyme-nav-background', $styles::$default_styles['nav']['background']);
-	update_option('tyme-nav-width', $styles::$default_styles['nav']['width']);
-	update_option('tyme-nav-link-color', $styles::$default_styles['nav']['nav_links']['color']);
-	update_option('tyme-nav-link-active-color', $styles::$default_styles['nav']['nav_links']['active']['color']);
-	update_option('tyme-nav-link-active-background', $styles::$default_styles['nav']['nav_links']['active']['background']);
-	update_option('tyme-nav-icon-color', $styles::$default_styles['nav']['icons']['color']);
-	update_option('tyme-nav-icon-active-color', $styles::$default_styles['nav']['icons']['active']['color']);
-
-	update_option('tyme-nav-subnav-background', $styles::$default_styles['nav']['subnav']['background']);
-	update_option('tyme-nav-subnav-link-color', $styles::$default_styles['nav']['subnav']['nav_links']['color']);
-	update_option('tyme-nav-subnav-active-link-color', $styles::$default_styles['nav']['subnav']['nav_links']['active']['color']);
-
-	// Tables
-	//update_option('tyme-table-background', $styles::$default_styles['tables']['background']);
-	//update_option('tyme-table-color', $styles::$default_styles['tables']['color']);
-	//update_option('tyme-table-border-color', $styles::$default_styles['tables']['border-color']);
+	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option => $value) {
+		update_option($option, $value);
+	}
 
 	// First load the init scripts in case any rewrite functionality is being loaded
 	flush_rewrite_rules();
@@ -91,15 +61,9 @@ function activate() {
  * @return void
  */
 function deactivate() {
-	// Global Body Styles
-	delete_option('tyme-background');
-	delete_option('tyme-font-family');
-	delete_option('tyme-font-color');
-	delete_option('tyme-font-size');
-
-	// Nav Styles
-	delete_option('tyme-nav-background');
-	delete_option('tyme-nav-width');
+	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option) {
+		delete_option($option);
+	}
 }
 
 /**
