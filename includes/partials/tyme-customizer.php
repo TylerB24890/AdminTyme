@@ -8,8 +8,8 @@
  * @link       https://tylerb.me
  * @since      1.0.0
  *
- * @package    Admintyme
- * @subpackage Admintyme/admin/partials
+ * @package    tyme-admin
+ * @subpackage tyme-admin/admin/partials
  */
 
 namespace Tyme\TymeAdmin\Admin;
