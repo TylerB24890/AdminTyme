@@ -1,15 +1,38 @@
 <?php
 
 namespace Tyme\TymeAdmin\Admin\Themes;
+use Tyme\TymeAdmin\Admin\Styles\Tyme_Styles as TymeStyles;
 
-class Tyme_Themes {
+class Tyme_Themes extends TymeStyles {
+
+  protected $active_theme;
 
   public function __construct() {
-    $this->register_theme_settings();
+    $this->active_theme = $this->get_active_theme();
   }
 
-  private function register_theme_settings() {
-    require TYME_INC . 'classes/class-tyme-themes-settings.php';
-    new Tyme_Themes_Settings;
+  /**
+   * Get the styles from the wp options
+   *
+   * @return array array of styles
+   */
+  public function get_theme_styles() {
+    return $this->build_theme_styles();
+  }
+
+  /**
+   * Includes the admin theme stylesheet
+   */
+  public static function set_admin_theme() {
+    include_once(TYME_INC . 'partials/stylesheet.css.php');
+  }
+
+  /**
+   * Get the currently active theme
+   *
+   * @return void
+   */
+  private function get_active_theme() {
+    return get_option('tyme-theme');
   }
 }

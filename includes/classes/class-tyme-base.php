@@ -9,7 +9,7 @@ class Tyme_Base {
    *
    * @var string
    */
-  public static $tyme_name, $tyme_options;
+  public static $tyme_name, $tyme_options, $tyme_themes;
 
   /**
    * Construct the Tyme Admin plugin base
@@ -40,7 +40,9 @@ class Tyme_Base {
     	'tyme-nav-subnav-active-link-color' => '#FFF',
     );*/
 
+
     self::$tyme_options = array(
+      'tyme-theme' => 'default',
     	'tyme-background' => '#333',
     	'tyme-font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
     	'tyme-font-color' => '#DDD',
@@ -60,6 +62,12 @@ class Tyme_Base {
     	'tyme-nav-subnav-background' => '#32373c',
     	'tyme-nav-subnav-link-color' => 'rgba(240,245,250,.7)',
     	'tyme-nav-subnav-active-link-color' => '#FFF',
+    );
+
+    self::$tyme_themes = array(
+      'default' => __('Default', TYME_SLUG),
+      'custom' => __('Custom', TYME_SLUG),
+      'material' => __('Material UI', TYME_SLUG),
     );
 
     if(is_admin())

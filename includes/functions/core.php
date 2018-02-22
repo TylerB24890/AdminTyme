@@ -56,12 +56,10 @@ function activate() {
 /**
  * Deactivate the plugin
  *
- * Uninstall routines should be in uninstall.php
- *
  * @return void
  */
 function deactivate() {
-	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option) {
+	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option => $value) {
 		delete_option($option);
 	}
 }

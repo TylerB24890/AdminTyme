@@ -1,9 +1,12 @@
 <?php
-namespace Tyme\TymeAdmin\Admin\Styles;
-$styles = Tyme_Styles::get_theme_styles();
+namespace Tyme\TymeAdmin\Admin\Themes;
+
+$theme = new Tyme_Themes;
+$styles = $theme->get_theme_styles();
 ?>
 
 <style>
+
 body {
   background: <?php echo $styles['tyme-background']; ?>;
   color: <?php echo $styles['tyme-font-color']; ?>;
@@ -37,12 +40,21 @@ a:hover {
   color: <?php echo $styles['tyme-nav-link-color']; ?>;
 }
 
+#adminmenu .wp-submenu li.current {
+  background: <?php echo $styles['tyme-nav-link-active-background']; ?>;
+}
+
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
   background: <?php echo $styles['tyme-nav-link-active-background']; ?>;
   color: <?php echo $styles['tyme-nav-subnav-link-color']; ?>;
 }
 
 #adminmenu .wp-has-current-submenu .wp-submenu,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+#adminmenu a.wp-has-current-submenu:focus+.wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu,
+#wpadminbar .menupop .ab-sub-wrapper,
+#wpadminbar .shortlink-input,
 #adminmenu .wp-submenu {
   background-color: <?php echo $styles['tyme-nav-subnav-background']; ?>;
 }
