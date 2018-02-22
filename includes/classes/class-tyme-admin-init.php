@@ -47,7 +47,6 @@ class Tyme_Admin_Init {
     wp_enqueue_style( TYME_SLUG, TYME_URL . 'assets/css/tyme-admin.css', array(), TYME_VERSION );
 
     add_action('admin_head', '\Tyme\TymeAdmin\Admin\Themes\Tyme_Themes::set_admin_theme');
-    //Styles\Tyme_Styles
   }
 
   /**

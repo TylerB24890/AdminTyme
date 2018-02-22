@@ -17,8 +17,8 @@ class Tyme_Base {
   public function __construct() {
     self::$tyme_name = __('Tyme Admin', TYME_SLUG);
 
-    /*
     self::$tyme_options = array(
+      'tyme-theme' => 'default',
     	'tyme-background' => '#f1f1f1',
     	'tyme-font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
     	'tyme-font-color' => '#444',
@@ -31,30 +31,6 @@ class Tyme_Base {
     	'tyme-nav-background' => '#23282d',
     	'tyme-nav-width' => '160px',
     	'tyme-nav-link-color' => '#eee',
-    	'tyme-nav-link-active-color' => '#FFF',
-    	'tyme-nav-link-active-background' => '#0073aa',
-    	'tyme-nav-icon-color' => 'rgba(240,245,250,.6)',
-    	'tyme-nav-icon-active-color' => '#FFF',
-    	'tyme-nav-subnav-background' => '#32373c',
-    	'tyme-nav-subnav-link-color' => 'rgba(240,245,250,.7)',
-    	'tyme-nav-subnav-active-link-color' => '#FFF',
-    );*/
-
-
-    self::$tyme_options = array(
-      'tyme-theme' => 'default',
-    	'tyme-background' => '#333',
-    	'tyme-font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-    	'tyme-font-color' => '#DDD',
-    	'tyme-font-size' => '13px',
-    	'tyme-headers-color' => '#FFF',
-    	'tyme-links-color' => '#CCC',
-    	'tyme-links-text-decoration' => 'none',
-    	'tyme-links-hover-color' => '#00a0d2',
-    	'tyme-links-hover-text-decoration' => 'none',
-    	'tyme-nav-background' => '#CCC',
-    	'tyme-nav-width' => '160px',
-    	'tyme-nav-link-color' => '#F8F8F8',
     	'tyme-nav-link-active-color' => '#FFF',
     	'tyme-nav-link-active-background' => '#0073aa',
     	'tyme-nav-icon-color' => 'rgba(240,245,250,.6)',

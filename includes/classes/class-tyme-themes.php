@@ -5,10 +5,10 @@ use Tyme\TymeAdmin\Admin\Styles\Tyme_Styles as TymeStyles;
 
 class Tyme_Themes extends TymeStyles {
 
-  protected $active_theme;
+  protected static $active_theme;
 
   public function __construct() {
-    $this->active_theme = $this->get_active_theme();
+    self::$active_theme = $this->get_active_theme();
   }
 
   /**
@@ -24,7 +24,11 @@ class Tyme_Themes extends TymeStyles {
    * Includes the admin theme stylesheet
    */
   public static function set_admin_theme() {
-    include_once(TYME_INC . 'partials/stylesheet.css.php');
+    if(self::$active_theme === 'custom' || self::$active_theme === 'default') {
+      include_once(TYME_INC . 'themes/custom.css.php');
+    } else {
+      include_once(TYME_INC . 'themes/' . self::$active_theme . '.css.php');
+    }
   }
 
   /**
