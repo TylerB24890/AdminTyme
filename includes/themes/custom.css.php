@@ -10,13 +10,22 @@ $styles = Settings::get_tyme_options();
 
 body {
   background: <?php echo $styles['background']; ?>;
-  color: <?php echo $styles['font-color']; ?>;
-  font-family: <?php echo $styles['font-family']; ?>;
-  font-size: <?php echo $styles['font-size']; ?>;
+  color: <?php echo $styles['body-font']['color']; ?>;
+  font-family: <?php echo $styles['body-font']['font-family']; ?>;
+  font-size: <?php echo $styles['body-font']['font-size']; ?>;
 }
 
-.wrap > h1 {
-  color: <?php echo $styles['header-color']; ?>;
+p,
+p.description {
+  color: <?php echo $styles['body-font']['color']; ?>;
+  font-family: <?php echo $styles['body-font']['font-family']; ?>;
+  font-size: <?php echo $styles['body-font']['font-size']; ?>;
+}
+
+.wrap > h1,
+.wrap > h2,
+.wrap > h3 {
+  color: <?php echo $styles['header-font']['color']; ?>;
 }
 
 a {

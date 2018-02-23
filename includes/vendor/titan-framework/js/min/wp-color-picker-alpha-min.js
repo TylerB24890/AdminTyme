@@ -210,6 +210,8 @@
 						} );
 					} else {
 						self.toggler.css( { backgroundColor : ui.color.toString() } );
+
+						liveUiUpdate(el, ui);
 					}
 
 					if ( $.isFunction( self.options.change ) ) {
@@ -494,3 +496,33 @@
 jQuery( document ).ready( function( $ ) {
 	$( '.color-picker' ).wpColorPicker();
 } );
+
+/**
+ * Update the UI on the fly as elements/colors change
+ * @param  object el 		The object we are getting the value from
+ * @param  object ui 		The color picker object
+ * @return void
+ */
+function liveUiUpdate(el, ui) {
+	// Change the background of
+	if(el.attr('name') === 'tyme_background') {
+		$('body').css('background', ui.color.toString());
+	}
+
+	// If is a font selection target by text
+	if(el.hasClass('tf-font-sel-color')) {
+
+		var colorSelectorID = el.parents('.tf-font').find('p.description').text();
+
+		if(colorSelectorID == 'Body Font Styles') {
+			$('body, p, p.description').css('color', ui.color.toString());
+		} else if(colorSelectorID == 'Header Font Styles') {
+			$('h1, h2, h3, h4, h5, h6').css('color', ui.color.toString());
+		}
+
+	}
+
+	if(el.attr('name') === 'tyme_link-color') {
+		$('a').css('color', ui.color.toString());
+	}
+}

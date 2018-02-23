@@ -11,10 +11,15 @@ class Tyme_Settings {
     self::$tyme_options = array(
       'theme' => 'default',
     	'background' => '#f1f1f1',
-    	'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-    	'font-color' => '#444',
-    	'font-size' => '13px',
-    	'header-color' => '#23282d',
+      'body-font' => array(
+        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'color' => '#444',
+        'font-size' => '13px'
+      ),
+      'header-font' => array(
+        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'color' => '#23282d',
+      ),
     	'link-color' => '#0073aa',
     	'link-text-decoration' => 'none',
     	'link-hover-color' => '#00a0d2',
@@ -52,6 +57,10 @@ class Tyme_Settings {
   	foreach(self::$tyme_options as $option => $value) {
       $styles[$option] = $titan->getOption($option);
   	}
+
+    if($styles['body-font']['font-family'] === 'inherit') {
+      $styles['body-font']['font-family'] = self::$tyme_options['body-font']['font-family'];
+    }
 
     return $styles;
   }
@@ -103,6 +112,48 @@ class Tyme_Settings {
       'type' => 'color',
       'default' => $defaults['background'],
       'desc' => 'The wp-admin background color',
+    ) );
+
+    $panel->createOption( array(
+      'name' => 'Headers',
+      'id' => 'header-font',
+      'type' => 'font',
+      'show_font_weight' => false,
+      'show_font_style' => false,
+      'show_line_height' => false,
+      'show_letter_spacing' => false,
+      'show_text_transform' => false,
+      'show_font_variant' => false,
+      'show_text_shadow' => false,
+      'show_font_size' => false,
+      'show_preview' => false,
+      'default' => array(
+        'font-family' => $defaults['header-font']['font-family'],
+        'line-height' => '1em',
+        'color' => $defaults['header-font']['color'],
+      ),
+      'desc' => 'Header Font Styles',
+    ) );
+
+    $panel->createOption( array(
+      'name' => 'Body Font',
+      'id' => 'body-font',
+      'type' => 'font',
+      'show_font_weight' => false,
+      'show_font_style' => false,
+      'show_line_height' => false,
+      'show_letter_spacing' => false,
+      'show_text_transform' => false,
+      'show_font_variant' => false,
+      'show_text_shadow' => false,
+      'show_preview' => false,
+      'default' => array(
+        'font-family' => $defaults['body-font']['font-family'],
+        'line-height' => '1em',
+        'font-size' => $defaults['body-font']['font-size'],
+        'color' => $defaults['body-font']['color'],
+      ),
+      'desc' => 'Body Font Styles',
     ) );
 
     $panel->createOption( array(
