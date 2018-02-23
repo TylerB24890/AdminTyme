@@ -504,9 +504,16 @@ jQuery( document ).ready( function( $ ) {
  * @return void
  */
 function liveUiUpdate(el, ui) {
+
+	var color = ui.color.toString();
+
+	if(color.indexOf('#') == -1) {
+		color = '#' + color;
+	}
+
 	// Change the background of
 	if(el.attr('name') === 'tyme_background') {
-		$('body').css('background', ui.color.toString());
+		$('body').css('background', color);
 	}
 
 	// If is a font selection target by text
@@ -515,14 +522,14 @@ function liveUiUpdate(el, ui) {
 		var colorSelectorID = el.parents('.tf-font').find('p.description').text();
 
 		if(colorSelectorID == 'Body Font Styles') {
-			$('body, p, p.description').css('color', ui.color.toString());
+			$('body, p, p.description').css('color', color);
 		} else if(colorSelectorID == 'Header Font Styles') {
-			$('h1, h2, h3, h4, h5, h6').css('color', ui.color.toString());
+			$('h1, h2, h3, h4, h5, h6').css('color', color);
 		}
 
 	}
 
 	if(el.attr('name') === 'tyme_link-color') {
-		$('a').css('color', ui.color.toString());
+		$('a').css('color', color);
 	}
 }
