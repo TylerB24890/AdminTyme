@@ -9,6 +9,7 @@ class Tyme_Settings {
   public function __construct() {
     add_action( 'tf_create_options', array($this, 'build_admin_pages') );
 
+    // Default wp-admin styles
     self::$tyme_options = array(
       'admin-tyme_theme' => 'default',
     	'admin-tyme_background' => '#f1f1f1',
@@ -39,6 +40,11 @@ class Tyme_Settings {
     );
   }
 
+  /**
+   * Get the plugin options (styles)
+   *
+   * @return array array of user-saved plugin options
+   */
   public static function get_tyme_options() {
 
     $styles = array();
@@ -76,32 +82,8 @@ class Tyme_Settings {
       'name' => __('Customizer', TYME_SLUG)
     ));
 
-    $this->register_theme_options($tyme_themes);
+    //$this->register_theme_options($tyme_themes);
     $this->register_customizer_options($tyme_customizer);
-  }
-
-  /**
-   * Create the Tyme Admin Default Theme Options
-   *
-   * @param  object $panel The Titan object for the admin panel
-   * @return void
-   */
-  private function register_theme_options($panel) {
-    $panel->createOption( array(
-      'name' => 'My Select Option',
-      'id' => 'my_select_option',
-      'type' => 'select',
-      'options' => array(
-        '1' => 'Option one',
-        '2' => 'Option two',
-        '3' => 'Option three',
-      ),
-      'desc' => 'This is a select drop down box',
-      'default' => '2',
-    ) );
-    $panel->createOption( array(
-      'type' => 'save'
-    ) );
   }
 
   /**

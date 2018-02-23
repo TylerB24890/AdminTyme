@@ -42,7 +42,6 @@ class Tyme_Admin_Init {
    * @return void
    */
   public function enqueue_styles() {
-    wp_enqueue_style( 'wp-color-picker' );
     wp_enqueue_style( TYME_SLUG, TYME_URL . 'assets/css/tyme-admin.css', array(), TYME_VERSION );
 
     add_action('admin_head', '\Tyme\TymeAdmin\Admin\Themes\Tyme_Themes::set_admin_theme');

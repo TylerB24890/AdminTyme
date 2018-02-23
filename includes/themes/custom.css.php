@@ -1,6 +1,5 @@
 <?php
 namespace Tyme\TymeAdmin\Admin\Themes;
-
 use \Tyme\TymeAdmin\Core\Tyme_Settings as Settings;
 
 $styles = Settings::get_tyme_options();
