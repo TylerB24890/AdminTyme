@@ -14,11 +14,7 @@ class Tyme_Themes {
    * Includes the admin theme stylesheet
    */
   public static function set_admin_theme() {
-    if(self::$active_theme === 'custom' || self::$active_theme === 'default') {
-      include_once(TYME_INC . 'themes/custom.css.php');
-    } else {
-      include_once(TYME_INC . 'themes/' . self::$active_theme . '.css.php');
-    }
+    include(TYME_INC . 'themes/custom.css.php');
   }
 
   /**

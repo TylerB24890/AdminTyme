@@ -45,12 +45,6 @@ function i18n() {
  * @return void
  */
 function activate() {
-	require_once TYME_INC . 'classes/class-tyme-base.php';
-
-	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option => $value) {
-		update_option($option, $value);
-	}
-
 	// First load the init scripts in case any rewrite functionality is being loaded
 	flush_rewrite_rules();
 }
@@ -61,9 +55,7 @@ function activate() {
  * @return void
  */
 function deactivate() {
-	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option => $value) {
-		delete_option($option);
-	}
+	delete_option('tyme_options');
 }
 
 /**
