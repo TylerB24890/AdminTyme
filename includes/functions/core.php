@@ -14,6 +14,8 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
+	register_tyme_settings();
+
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'load_dependencies' ) );
 }
@@ -62,6 +64,16 @@ function deactivate() {
 	foreach(\Tyme\TymeAdmin\Base\Tyme_Base::$tyme_options as $option => $value) {
 		delete_option($option);
 	}
+}
+
+/**
+ * Registers the Tyme Admin options and pages w/ Titan
+ *
+ * @return void
+ */
+function register_tyme_settings() {
+	require_once TYME_INC . 'classes/class-tyme-settings.php';
+	new Tyme_Settings;
 }
 
 /**

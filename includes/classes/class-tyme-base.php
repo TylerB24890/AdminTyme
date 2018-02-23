@@ -9,42 +9,13 @@ class Tyme_Base {
    *
    * @var string
    */
-  public static $tyme_name, $tyme_options, $tyme_themes;
+  public static $tyme_name;
 
   /**
    * Construct the Tyme Admin plugin base
    */
   public function __construct() {
     self::$tyme_name = __('Tyme Admin', TYME_SLUG);
-
-    self::$tyme_options = array(
-      'tyme-theme' => 'default',
-    	'tyme-background' => '#f1f1f1',
-    	'tyme-font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
-    	'tyme-font-color' => '#444',
-    	'tyme-font-size' => '13px',
-    	'tyme-headers-color' => '#23282d',
-    	'tyme-links-color' => '#0073aa',
-    	'tyme-links-text-decoration' => 'none',
-    	'tyme-links-hover-color' => '#00a0d2',
-    	'tyme-links-hover-text-decoration' => 'none',
-    	'tyme-nav-background' => '#23282d',
-    	'tyme-nav-width' => '160px',
-    	'tyme-nav-link-color' => '#eee',
-    	'tyme-nav-link-active-color' => '#FFF',
-    	'tyme-nav-link-active-background' => '#0073aa',
-    	'tyme-nav-icon-color' => 'rgba(240,245,250,.6)',
-    	'tyme-nav-icon-active-color' => '#FFF',
-    	'tyme-nav-subnav-background' => '#32373c',
-    	'tyme-nav-subnav-link-color' => 'rgba(240,245,250,.7)',
-    	'tyme-nav-subnav-active-link-color' => '#FFF',
-    );
-
-    self::$tyme_themes = array(
-      'default' => __('Default', TYME_SLUG),
-      'custom' => __('Custom', TYME_SLUG),
-      'material' => __('Material UI', TYME_SLUG),
-    );
 
     if(is_admin())
       $this->run_admin();

@@ -37,8 +37,8 @@ use Tyme\TymeAdmin\Base\Tyme_Base as Tyme;
       <form method="post" action="options.php">
         <?php
 
-        settings_fields( 'admintyme_default' );
-        do_settings_sections( 'admintyme_default' );
+        //settings_fields( 'tyme-theme-choice' );
+        //do_settings_sections( 'tyme-theme-section' );
 
         submit_button();
 

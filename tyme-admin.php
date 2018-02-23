@@ -37,6 +37,7 @@ define( 'TYME_INC',     TYME_PATH . 'includes/' );
 define( 'TYME_SLUG', 'tyme' );
 
 // Include files
+require_once TYME_INC . 'vendor/titan-framework/titan-framework-embedder.php';
 require_once TYME_INC . 'functions/core.php';
 
 // Activation/Deactivation

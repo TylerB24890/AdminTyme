@@ -1,52 +1,53 @@
 <?php
 namespace Tyme\TymeAdmin\Admin\Themes;
 
-$theme = new Tyme_Themes;
-$styles = $theme->get_theme_styles();
+use \Tyme\TymeAdmin\Core\Tyme_Settings as Settings;
+
+$styles = Settings::get_tyme_options();
 ?>
 
 <style>
 
 body {
-  background: <?php echo $styles['tyme-background']; ?>;
-  color: <?php echo $styles['tyme-font-color']; ?>;
-  font-family: <?php echo $styles['tyme-font-family']; ?>;
-  font-size: <?php echo $styles['tyme-font-size']; ?>;
+  background: <?php echo $styles['admin-tyme_background']; ?>;
+  color: <?php echo $styles['admin-tyme_font-color']; ?>;
+  font-family: <?php echo $styles['admin-tyme_font-family']; ?>;
+  font-size: <?php echo $styles['admin-tyme_font-size']; ?>;
 }
 
 .wrap > h1 {
-  color: <?php echo $styles['tyme-headers-color']; ?>;
+  color: <?php echo $styles['admin-tyme_header-color']; ?>;
 }
 
 a {
-  color: <?php echo $styles['tyme-links-color']; ?>;
-  text-decoration: <?php echo $styles['tyme-links-text-decoration'];  ?>;
+  color: <?php echo $styles['admin-tyme_link-color']; ?>;
+  text-decoration: <?php echo $styles['admin-tyme_link-text-decoration'];  ?>;
 }
 a:active,
 a:hover {
-  color: <?php echo $styles['tyme-links-hover-color'];  ?>;
-  text-decoration: <?php echo $styles['tyme-links-hover-text-decoration']; ?>;
+  color: <?php echo $styles['admin-tyme_link-hover-color'];  ?>;
+  text-decoration: <?php echo $styles['admin-tyme_link-hover-text-decoration']; ?>;
 }
 
 #adminmenu,
 #adminmenu .wp-submenu,
 #adminmenuback,
 #adminmenuwrap {
-  background-color: <?php echo $styles['tyme-nav-background']; ?>;
-  width: <?php echo $styles['tyme-nav-wdth']; ?>;
+  background-color: <?php echo $styles['admin-tyme_nav-background']; ?>;
+  width: <?php echo $styles['admin-tyme_nav-width']; ?>;
 }
 
 #adminmenu a {
-  color: <?php echo $styles['tyme-nav-link-color']; ?>;
+  color: <?php echo $styles['admin-tyme_nav-link-color']; ?>;
 }
 
 #adminmenu .wp-submenu li.current {
-  background: <?php echo $styles['tyme-nav-link-active-background']; ?>;
+  background: <?php echo $styles['admin-tyme_nav-link-active-background']; ?>;
 }
 
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
-  background: <?php echo $styles['tyme-nav-link-active-background']; ?>;
-  color: <?php echo $styles['tyme-nav-subnav-link-color']; ?>;
+  background: <?php echo $styles['admin-tyme_nav-link-active-background']; ?>;
+  color: <?php echo $styles['admin-tyme_nav-subnav-link-color']; ?>;
 }
 
 #adminmenu .wp-has-current-submenu .wp-submenu,
@@ -56,14 +57,14 @@ a:hover {
 #wpadminbar .menupop .ab-sub-wrapper,
 #wpadminbar .shortlink-input,
 #adminmenu .wp-submenu {
-  background-color: <?php echo $styles['tyme-nav-subnav-background']; ?>;
+  background-color: <?php echo $styles['admin-tyme_nav-subnav-background']; ?>;
 }
 #adminmenu .wp-has-current-submenu .wp-submenu a,
 #adminmenu .wp-submenu a {
-  color: <?php echo $styles['tyme-nav-subnav-link-color']; ?>;
+  color: <?php echo $styles['admin-tyme_nav-subnav-link-color']; ?>;
 }
 #adminmenu .wp-has-current-submenu .wp-submenu li.current a,
 #adminmenu .wp-submenu li.current a {
-  color: <?php echo $styles['tyme-nav-subnav-active-link-color']; ?>;
+  color: <?php echo $styles['admin-tyme_nav-subnav-active-link-color']; ?>;
 }
 </style>

@@ -1,23 +1,13 @@
 <?php
 
 namespace Tyme\TymeAdmin\Admin\Themes;
-use Tyme\TymeAdmin\Admin\Styles\Tyme_Styles as TymeStyles;
 
-class Tyme_Themes extends TymeStyles {
+class Tyme_Themes {
 
   protected static $active_theme;
 
   public function __construct() {
     self::$active_theme = $this->get_active_theme();
-  }
-
-  /**
-   * Get the styles from the wp options
-   *
-   * @return array array of styles
-   */
-  public function get_theme_styles() {
-    return $this->build_theme_styles();
   }
 
   /**
