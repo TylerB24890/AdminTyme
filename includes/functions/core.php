@@ -74,5 +74,6 @@ function register_tyme_settings() {
  * @return void
  */
 function load_dependencies() {
+	require_once TYME_INC . 'functions/helpers.php';
 	require_once TYME_INC . 'classes/class-tyme-base.php';
 }

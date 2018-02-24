@@ -526,6 +526,15 @@ function liveUiUpdate(el, ui) {
 			$('body, p, p.description').css('color', color);
 		} else if(colorSelectorID == 'Header Font Styles') {
 			$('h1, h2, h3, h4, h5, h6').css('color', color);
+		} else if(colorSelectorID == 'Navigation Font Styles') {
+			$('#adminmenu a').css('color', color, 'important');
+
+			// Change the navigation element icon color with the text
+			if($('#icon-style').length) {
+				$('#icon-style').html('#adminmenu div.wp-menu-image:before { color: ' + color + ' !important;}');
+			} else {
+				$('body').prepend('<style id="icon-style">#adminmenu div.wp-menu-image:before { color: ' + color + ' !important;}</style>');
+			}
 		}
 
 	}

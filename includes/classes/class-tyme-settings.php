@@ -26,7 +26,11 @@ class Tyme_Settings {
     	'link-hover-text-decoration' => 'none',
     	'nav-background' => '#23282d',
     	'nav-width' => '160px',
-    	'nav-link-color' => '#eee',
+      'nav-font' => array(
+        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'color' => '#eee',
+        'font-size' => '14px'
+      ),
     	'nav-link-active-color' => '#FFF',
     	'nav-link-active-background' => '#0073aa',
     	'nav-icon-color' => 'rgba(240,245,250,.6)',
@@ -81,7 +85,7 @@ class Tyme_Settings {
     $tyme_admin = $titan->createAdminPanel(array(
       'name' => __('Tyme Admin', TYME_SLUG),
       'id' => TYME_SLUG,
-      'desc' => __('Tyme Admin allows you to customize your wp-admin experience to your specifications. Vist the Admin Tyme Customizer to change your admin color schemes, font families, icons and more! Or, enable one of the themes provided and customize it to your needs.', TYME_SLUG)
+      'desc' => __('Take control of your dashboard. Choose a theme or customize your own using the Tyme Customizer.', TYME_SLUG)
     ));
 
     $tyme_overview = $tyme_admin->createTab(array(
@@ -90,10 +94,12 @@ class Tyme_Settings {
 
     $tyme_themes = $tyme_admin->createTab(array(
       'name' => __('Themes', TYME_SLUG),
+      'desc' => '<span class="note">' . __('Changes are not saved until click the \'Save\' button.', TYME_SLUG) . '</span>'
     ));
 
     $tyme_customizer = $tyme_admin->createTab(array(
-      'name' => __('Customizer', TYME_SLUG)
+      'name' => __('Customizer', TYME_SLUG),
+      'desc' => '<span class="note">' . __('Changes are not saved until click the \'Save Changes\' button.', TYME_SLUG) . '</span>'
     ));
 
     //$this->register_theme_options($tyme_themes);
@@ -112,15 +118,15 @@ class Tyme_Settings {
     $defaults = self::$tyme_options;
 
     $panel->createOption( array(
-      'name' => 'Background Color',
+      'name' => __('Background Color', TYME_SLUG),
       'id' => 'background',
       'type' => 'color',
       'default' => $defaults['background'],
-      'desc' => 'The wp-admin background color',
+      'desc' => __('The wp-admin background color', TYME_SLUG),
     ) );
 
     $panel->createOption( array(
-      'name' => 'Headers',
+      'name' => __('Headers', TYME_SLUG),
       'id' => 'header-font',
       'type' => 'font',
       'show_font_weight' => false,
@@ -137,11 +143,11 @@ class Tyme_Settings {
         'line-height' => '1em',
         'color' => $defaults['header-font']['color'],
       ),
-      'desc' => 'Header Font Styles',
+      'desc' => __('Header Font Styles', TYME_SLUG),
     ) );
 
     $panel->createOption( array(
-      'name' => 'Body Font',
+      'name' => __('Body Font', TYME_SLUG),
       'id' => 'body-font',
       'type' => 'font',
       'show_font_weight' => false,
@@ -158,31 +164,61 @@ class Tyme_Settings {
         'font-size' => $defaults['body-font']['font-size'],
         'color' => $defaults['body-font']['color'],
       ),
-      'desc' => 'Body Font Styles',
+      'desc' => __('Body Font Styles', TYME_SLUG),
     ) );
 
     $panel->createOption( array(
-      'name' => 'Body Link Color',
+      'name' => __('Body Link Color', TYME_SLUG),
       'id' => 'link-color',
       'type' => 'color',
       'default' => $defaults['link-color'],
-      'desc' => 'Default color for links within the body',
+      'desc' => __('Default color for links within the body', TYME_SLUG),
     ) );
 
     $panel->createOption( array(
-      'name' => 'Navigation Background',
+      'name' => __('Navigation Background', TYME_SLUG),
       'id' => 'nav-background',
       'type' => 'color',
       'default' => $defaults['nav-background'],
-      'desc' => 'Navigation Panel Background Color',
+      'desc' => __('Navigation Panel Background Color', TYME_SLUG),
     ) );
 
     $panel->createOption( array(
-      'name' => 'Admin Bar Background',
+      'name' => __('Navigation Font', TYME_SLUG),
+      'id' => 'nav-font',
+      'type' => 'font',
+      'show_font_weight' => false,
+      'show_font_style' => false,
+      'show_line_height' => false,
+      'show_letter_spacing' => false,
+      'show_text_transform' => false,
+      'show_font_variant' => false,
+      'show_text_shadow' => false,
+      'show_font_size' => false,
+      'show_preview' => false,
+      'default' => array(
+        'font-family' => $defaults['nav-font']['font-family'],
+        'line-height' => '1em',
+        'font-size' => $defaults['nav-font']['font-size'],
+        'color' => $defaults['nav-font']['color'],
+      ),
+      'desc' => __('Navigation Font Styles', TYME_SLUG),
+    ) );
+
+    $panel->createOption( array(
+      'name' => __('Active Navigation Color', TYME_SLUG),
+      'id' => 'nav-link-active-color',
+      'type' => 'color',
+      'default' => $defaults['nav-link-active-color'],
+      'desc' => __('Active Navigation Link Color', TYME_SLUG),
+    ) );
+
+    $panel->createOption( array(
+      'name' => __('Admin Bar Background', TYME_SLUG),
       'id' => 'admin-bar-background',
       'type' => 'color',
       'default' => $defaults['admin-bar-background'],
-      'desc' => 'Top Admin Bar Background Color',
+      'desc' => __('Top Admin Bar Background Color', TYME_SLUG),
     ) );
     $panel->createOption( array(
       'type' => 'save'

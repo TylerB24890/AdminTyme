@@ -11,8 +11,12 @@ body {
         &.description {
           font-size: 18px;
           font-style: normal;
-          margin-bottom: 30px;
+          margin-bottom: 15px;
         }
+      }
+
+      small {
+        font-size: 14px;
       }
 
       .tf-font {
@@ -22,6 +26,27 @@ body {
 
         iframe {
           height: 80px;
+        }
+      }
+
+      .options-container {
+        form {
+          >p.description {
+            margin: 0;
+            line-height: 1;
+
+            span {
+              &.note {
+                color: red;
+                display: block;
+                border-left: 1px solid #DDD;
+                border-right: 1px solid #DDD;
+                padding: 20px 15px;
+                font-size: 16px;
+                background: #FFF;
+              }
+            }
+          }
         }
       }
     }
