@@ -117,6 +117,7 @@ class Tyme_Settings {
     $styles = self::get_tyme_options();
     $defaults = self::$tyme_options;
 
+    // Background Color
     $panel->createOption( array(
       'name' => __('Background Color', TYME_SLUG),
       'id' => 'background',
@@ -125,6 +126,7 @@ class Tyme_Settings {
       'desc' => __('The wp-admin background color', TYME_SLUG),
     ) );
 
+    // Header Fonts
     $panel->createOption( array(
       'name' => __('Headers', TYME_SLUG),
       'id' => 'header-font',
@@ -146,6 +148,7 @@ class Tyme_Settings {
       'desc' => __('Header Font Styles', TYME_SLUG),
     ) );
 
+    // Body Fonts
     $panel->createOption( array(
       'name' => __('Body Font', TYME_SLUG),
       'id' => 'body-font',
@@ -167,6 +170,7 @@ class Tyme_Settings {
       'desc' => __('Body Font Styles', TYME_SLUG),
     ) );
 
+    // Body Links
     $panel->createOption( array(
       'name' => __('Body Link Color', TYME_SLUG),
       'id' => 'link-color',
@@ -175,6 +179,7 @@ class Tyme_Settings {
       'desc' => __('Default color for links within the body', TYME_SLUG),
     ) );
 
+    // Navigation Background
     $panel->createOption( array(
       'name' => __('Navigation Background', TYME_SLUG),
       'id' => 'nav-background',
@@ -183,6 +188,7 @@ class Tyme_Settings {
       'desc' => __('Navigation Panel Background Color', TYME_SLUG),
     ) );
 
+    // Navigation Font
     $panel->createOption( array(
       'name' => __('Navigation Font', TYME_SLUG),
       'id' => 'nav-font',
@@ -205,6 +211,7 @@ class Tyme_Settings {
       'desc' => __('Navigation Font Styles', TYME_SLUG),
     ) );
 
+    // Active Navigation Font
     $panel->createOption( array(
       'name' => __('Active Navigation Color', TYME_SLUG),
       'id' => 'nav-link-active-color',
@@ -213,6 +220,7 @@ class Tyme_Settings {
       'desc' => __('Active Navigation Link Color', TYME_SLUG),
     ) );
 
+    // Top Admin Bar Background Color
     $panel->createOption( array(
       'name' => __('Admin Bar Background', TYME_SLUG),
       'id' => 'admin-bar-background',
@@ -220,6 +228,8 @@ class Tyme_Settings {
       'default' => $defaults['admin-bar-background'],
       'desc' => __('Top Admin Bar Background Color', TYME_SLUG),
     ) );
+
+    // Save Options
     $panel->createOption( array(
       'type' => 'save'
     ) );

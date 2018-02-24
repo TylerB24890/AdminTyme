@@ -17,11 +17,16 @@ body {
 }
 
 /** FONT STYLES **/
-div:not(.updated) p,
-div:not(.updated) p.description {
+p,
+p.description {
   color: <?php echo $styles['body-font']['color']; ?>;
   font-family: <?php echo $styles['body-font']['font-family']; ?>;
   font-size: <?php echo $styles['body-font']['font-size']; ?>;
+}
+
+div.postbox p,
+div.options-container p {
+  color: #000;
 }
 
 .wrap > h1,
