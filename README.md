@@ -9,4 +9,4 @@
 
 ## Installation
 
-> This plugin is still in it's very early stages and is not yet released for production. When it is ready, it will be released on the WordPress plugin repository. If you wish to use this plugin now, feel free to install this git repository into the `/wp-content/plugins/tyme-admin` directory.
+> This plugin is still in it's very early stages and is not yet released for production. When it is ready, it will be released on the WordPress plugin repository. If you wish to use this plugin now, feel free to install this git repository into the `/wp-content/plugins/admintyme` directory.
