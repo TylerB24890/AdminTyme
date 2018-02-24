@@ -397,7 +397,7 @@ class TitanFrameworkOptionFont extends TitanFrameworkOption {
 
 			var _tf_select_font_throttle = null;
 
-			
+
 			// Initialize color pickers
 			$('.tf-font .tf-font-sel-color').wpColorPicker({
 				change: function ( event, ui ) {
@@ -562,7 +562,7 @@ class TitanFrameworkOptionFont extends TitanFrameworkOption {
 		<label <?php echo $visibilityAttrs ?>>
 			Font Family
 			<select class='tf-font-sel-family'>
-				<option value='inherit'>inherit</option>
+				<option value='inherit'>Default</option>
 				<?php
 
 				if( $this->settings['fonts'] ) {

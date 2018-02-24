@@ -28,14 +28,18 @@ p.description {
   color: <?php echo $styles['header-font']['color']; ?>;
 }
 
-a {
+.wrap a {
   color: <?php echo $styles['link-color']; ?>;
   text-decoration: <?php echo $styles['link-text-decoration'];  ?>;
 }
-a:active,
-a:hover {
+.wrap a:active,
+.wrap a:hover {
   color: <?php echo $styles['link-hover-color'];  ?>;
   text-decoration: <?php echo $styles['link-hover-text-decoration']; ?>;
+}
+
+#wpadminbar {
+  background-color: <?php echo $styles['admin-bar-background']; ?>;
 }
 
 #adminmenu,

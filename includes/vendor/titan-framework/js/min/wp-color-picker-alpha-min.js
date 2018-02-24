@@ -505,6 +505,7 @@ jQuery( document ).ready( function( $ ) {
  */
 function liveUiUpdate(el, ui) {
 
+	console.log(ui);
 	var color = ui.color.toString();
 
 	if(color.indexOf('#') == -1) {
@@ -530,6 +531,14 @@ function liveUiUpdate(el, ui) {
 	}
 
 	if(el.attr('name') === 'tyme_link-color') {
-		$('a').css('color', color);
+		$('#wpcontent a:not(.nav-tab, .ab-item), #wpfooter a').css('color', color);
+	}
+
+	if(el.attr('name') === 'tyme_nav-background') {
+		$('#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap').css('background', color);
+	}
+
+	if(el.attr('name') === 'tyme_admin-bar-background') {
+		$('#wpadminbar').css('background', color);
 	}
 }

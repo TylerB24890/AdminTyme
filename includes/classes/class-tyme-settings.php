@@ -34,6 +34,7 @@ class Tyme_Settings {
     	'nav-subnav-background' => '#32373c',
     	'nav-subnav-link-color' => 'rgba(240,245,250,.7)',
     	'nav-subnav-active-link-color' => '#FFF',
+      'admin-bar-background' => '#23282d'
     );
 
     self::$tyme_themes = array(
@@ -60,6 +61,10 @@ class Tyme_Settings {
 
     if($styles['body-font']['font-family'] === 'inherit') {
       $styles['body-font']['font-family'] = self::$tyme_options['body-font']['font-family'];
+    }
+
+    if($styles['header-font']['font-family'] === 'inherit') {
+      $styles['header-font']['font-family'] = self::$tyme_options['header-font']['font-family'];
     }
 
     return $styles;
@@ -157,11 +162,27 @@ class Tyme_Settings {
     ) );
 
     $panel->createOption( array(
-      'name' => 'Link Color',
+      'name' => 'Body Link Color',
       'id' => 'link-color',
       'type' => 'color',
       'default' => $defaults['link-color'],
-      'desc' => 'Default color for links',
+      'desc' => 'Default color for links within the body',
+    ) );
+
+    $panel->createOption( array(
+      'name' => 'Navigation Background',
+      'id' => 'nav-background',
+      'type' => 'color',
+      'default' => $defaults['nav-background'],
+      'desc' => 'Navigation Panel Background Color',
+    ) );
+
+    $panel->createOption( array(
+      'name' => 'Admin Bar Background',
+      'id' => 'admin-bar-background',
+      'type' => 'color',
+      'default' => $defaults['admin-bar-background'],
+      'desc' => 'Top Admin Bar Background Color',
     ) );
     $panel->createOption( array(
       'type' => 'save'
