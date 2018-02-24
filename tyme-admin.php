@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Tyme Admin
+ * Plugin Name: Admin Tyme
  * Plugin URI:  https://tylerb.me
  * Description: Customize your WordPress Admin with your own color schemes or customize a pre-built theme provided.
  * Version:     0.1.0

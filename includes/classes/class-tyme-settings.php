@@ -83,7 +83,7 @@ class Tyme_Settings {
     $titan = \TitanFramework::getInstance('tyme');
 
     $tyme_admin = $titan->createAdminPanel(array(
-      'name' => __('Tyme Admin', TYME_SLUG),
+      'name' => __('Admin Tyme', TYME_SLUG),
       'id' => TYME_SLUG,
       'desc' => __('Take control of your dashboard. Choose a theme or customize your own using the Tyme Customizer.', TYME_SLUG)
     ));
