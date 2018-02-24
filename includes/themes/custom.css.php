@@ -26,6 +26,7 @@ p.description {
 .wrap > h2,
 .wrap > h3 {
   color: <?php echo $styles['header-font']['color']; ?>;
+  font-family: <?php echo $styles['header-font']['font-family']; ?>;
 }
 
 .wrap a {
