@@ -25,11 +25,9 @@ class Tyme_Admin_Init {
    * @return void
    */
   public function load_admin_files() {
-    require TYME_INC . 'classes/class-tyme-styles.php';
     require TYME_INC . 'classes/class-tyme-themes.php';
     require TYME_INC . 'classes/class-tyme-customizer.php';
 
-    new Styles\Tyme_Styles;
     new Themes\Tyme_Themes;
     new Customizer\Tyme_Customizer;
   }

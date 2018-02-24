@@ -28,15 +28,10 @@ p.description {
   color: <?php echo $styles['header-font']['color']; ?>;
   font-family: <?php echo $styles['header-font']['font-family']; ?>;
 }
-
-.wrap a {
+#wpcontent a:not(.nav-tab, .ab-item),
+#wpfooter a {
   color: <?php echo $styles['link-color']; ?>;
   text-decoration: <?php echo $styles['link-text-decoration'];  ?>;
-}
-.wrap a:active,
-.wrap a:hover {
-  color: <?php echo $styles['link-hover-color'];  ?>;
-  text-decoration: <?php echo $styles['link-hover-text-decoration']; ?>;
 }
 
 #wpadminbar {
