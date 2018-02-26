@@ -38,7 +38,11 @@ class Tyme_Settings {
     	'nav-subnav-background' => '#32373c',
     	'nav-subnav-link-color' => 'rgba(240,245,250,.7)',
     	'nav-subnav-active-link-color' => '#FFF',
-      'admin-bar-background' => '#23282d'
+      'admin-bar-background' => '#23282d',
+      'admin-bar-font' => array(
+        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'color' => '#eee',
+      )
     );
 
     self::$tyme_themes = array(
@@ -227,6 +231,28 @@ class Tyme_Settings {
       'type' => 'color',
       'default' => $defaults['admin-bar-background'],
       'desc' => __('Top Admin Bar Background Color', TYME_SLUG),
+    ) );
+
+    // Navigation Font
+    $panel->createOption( array(
+      'name' => __('Admin Bar Font', TYME_SLUG),
+      'id' => 'admin-bar-font',
+      'type' => 'font',
+      'show_font_weight' => false,
+      'show_font_style' => false,
+      'show_line_height' => false,
+      'show_letter_spacing' => false,
+      'show_text_transform' => false,
+      'show_font_variant' => false,
+      'show_text_shadow' => false,
+      'show_font_size' => false,
+      'show_preview' => false,
+      'default' => array(
+        'font-family' => $defaults['admin-bar-font']['font-family'],
+        'line-height' => '1em',
+        'color' => $defaults['admin-bar-font']['color'],
+      ),
+      'desc' => __('Admin Bar Font Styles', TYME_SLUG),
     ) );
 
     // Save Options

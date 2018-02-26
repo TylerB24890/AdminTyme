@@ -55,6 +55,17 @@ div.options-container p {
   background-color: <?php echo $styles['admin-bar-background']; ?>;
 }
 
+#wpadminbar .ab-item:before,
+#wpadminbar .ab-icon:before {
+  color: <?php echo $styles['admin-bar-font']['color']; ?>;
+}
+
+#wpadminbar a.ab-item,
+#wpadminbar > #wp-toolbar span.ab-label {
+  color: <?php echo $styles['admin-bar-font']['color']; ?>;
+  font-family: <?php echo $styles['admin-bar-font']['font-family']; ?>;
+}
+
 /** ADMIN MENUS **/
 #adminmenu,
 #adminmenuback,

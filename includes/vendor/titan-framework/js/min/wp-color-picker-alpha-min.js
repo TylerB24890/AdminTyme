@@ -505,7 +505,6 @@ jQuery( document ).ready( function( $ ) {
  */
 function liveUiUpdate(el, ui) {
 
-	console.log(ui);
 	var color = ui.color.toString();
 
 	if(color.indexOf('#') == -1) {
@@ -517,26 +516,35 @@ function liveUiUpdate(el, ui) {
 		$('body').css('background', color);
 	}
 
+	var fontSelectorID = '';
+
 	// If is a font selection target by text
 	if(el.hasClass('tf-font-sel-color')) {
 
-		var colorSelectorID = el.parents('.tf-font').find('p.description').text();
+		fontSelectorID = el.parents('.tf-font').find('p.description').text();
 
-		if(colorSelectorID == 'Body Font Styles') {
+		if(fontSelectorID == 'Body Font Styles') {
 			$('body, p, p.description').css('color', color);
-		} else if(colorSelectorID == 'Header Font Styles') {
+		} else if(fontSelectorID == 'Header Font Styles') {
 			$('h1, h2, h3, h4, h5, h6').css('color', color);
-		} else if(colorSelectorID == 'Navigation Font Styles') {
-			$('#adminmenu a').css('color', color, 'important');
-
+		} else if(fontSelectorID == 'Navigation Font Styles') {
+			$('#adminmenu li:not(.current) a').css('color', color, 'important');
 			// Change the navigation element icon color with the text
 			if($('#icon-style').length) {
-				$('#icon-style').html('#adminmenu div.wp-menu-image:before { color: ' + color + ' !important;}');
+				$('#icon-style').html('#adminmenu li:not(.current) div.wp-menu-image:before { color: ' + color + ' !important;}');
 			} else {
-				$('body').prepend('<style id="icon-style">#adminmenu div.wp-menu-image:before { color: ' + color + ' !important;}</style>');
+				$('body').prepend('<style id="icon-style">#adminmenu li:not(.current) div.wp-menu-image:before { color: ' + color + ' !important;}</style>');
+			}
+		} else if(fontSelectorID == 'Admin Bar Font Styles') {
+			$('#wpadminbar a.ab-item, #wpadminbar > #wp-toolbar span.ab-label').css('color', color, 'important');
+
+			// Change the admin bar element icon color with the text
+			if($('#adminbar-icon-style').length) {
+				$('#adminbar-icon-style').html('#wpadminbar .ab-item:before, #wpadminbar .ab-icon:before { color: ' + color + ' !important;}');
+			} else {
+				$('body').prepend('<style id="adminbar-icon-style">#wpadminbar .ab-item:before, #wpadminbar .ab-icon:before { color: ' + color + ' !important;}</style>');
 			}
 		}
-
 	}
 
 	if(el.attr('name') === 'tyme_link-color') {
@@ -545,6 +553,17 @@ function liveUiUpdate(el, ui) {
 
 	if(el.attr('name') === 'tyme_nav-background') {
 		$('#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap').css('background', color);
+	}
+
+	if(el.attr('name') === 'tyme_nav-link-active-color') {
+		$('#adminmenu li.current a.menu-top').css('color', color);
+
+		// Change the navigation element icon color with the text
+		if($('#icon-style-active').length) {
+			$('#icon-style-active').html('#adminmenu li.current div.wp-menu-image:before { color: ' + color + ' !important;}');
+		} else {
+			$('body').prepend('<style id="icon-style-active">#adminmenu li.current div.wp-menu-image:before { color: ' + color + ' !important;}</style>');
+		}
 	}
 
 	if(el.attr('name') === 'tyme_admin-bar-background') {
