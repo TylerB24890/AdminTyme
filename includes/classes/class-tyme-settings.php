@@ -75,6 +75,14 @@ class Tyme_Settings {
       $styles['header-font']['font-family'] = self::$tyme_options['header-font']['font-family'];
     }
 
+    if($styles['nav-font']['font-family'] === 'inherit') {
+      $styles['nav-font']['font-family'] = self::$tyme_options['nav-font']['font-family'];
+    }
+
+    if($styles['admin-bar-font']['font-family'] === 'inherit') {
+      $styles['admin-bar-font']['font-family'] = self::$tyme_options['admin-bar-font']['font-family'];
+    }
+
     return $styles;
   }
 
