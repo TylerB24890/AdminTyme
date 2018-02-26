@@ -94,6 +94,8 @@ class Tyme_Settings {
   public function build_admin_pages() {
     $titan = \TitanFramework::getInstance('tyme');
 
+    include_once(TYME_INC . 'partials/overview-tab.php');
+
     $tyme_admin = $titan->createAdminPanel(array(
       'name' => __('Admin Tyme', TYME_SLUG),
       'id' => TYME_SLUG,
@@ -102,6 +104,7 @@ class Tyme_Settings {
 
     $tyme_overview = $tyme_admin->createTab(array(
       'name' => __('Overview', TYME_SLUG),
+      'desc' => return_overview_tab()
     ));
 
     $tyme_themes = $tyme_admin->createTab(array(

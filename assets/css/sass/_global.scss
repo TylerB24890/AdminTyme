@@ -55,6 +55,42 @@ body {
             }
           }
         }
+
+        .form-table {
+          tr {
+            &:first-child {
+              border-top: 1px solid #000 !important;
+            }
+            &.row-4,
+            &.row-7,
+            &:last-child {
+              border-bottom: 1px solid #000 !important;
+            }
+          }
+        }
+      }
+
+      .tyme-container {
+        background: #FFF;
+        border-left: 1px solid #CCC;
+        border-right: 1px solid #CCC;
+        border-bottom: 1px solid #CCC;
+        padding: 30px 20px 20px;
+
+        h1 {
+          margin: 0;
+        }
+        h3 {
+          margin: 0;
+        }
+
+        p {
+          font-size: 16px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
       }
     }
   }

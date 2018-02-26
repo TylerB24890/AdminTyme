@@ -39,5 +39,26 @@ body.toplevel_page_tyme .wrap .options-container form > p.description {
     font-size: 16px;
     background: #FFF; }
 
+body.toplevel_page_tyme .wrap .options-container .form-table tr:first-child {
+  border-top: 1px solid #000 !important; }
+
+body.toplevel_page_tyme .wrap .options-container .form-table tr.row-4, body.toplevel_page_tyme .wrap .options-container .form-table tr.row-7, body.toplevel_page_tyme .wrap .options-container .form-table tr:last-child {
+  border-bottom: 1px solid #000 !important; }
+
+body.toplevel_page_tyme .wrap .tyme-container {
+  background: #FFF;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  padding: 30px 20px 20px; }
+  body.toplevel_page_tyme .wrap .tyme-container h1 {
+    margin: 0; }
+  body.toplevel_page_tyme .wrap .tyme-container h3 {
+    margin: 0; }
+  body.toplevel_page_tyme .wrap .tyme-container p {
+    font-size: 16px; }
+    body.toplevel_page_tyme .wrap .tyme-container p:first-child {
+      margin-top: 0; }
+
 #tyme.admin.customizer .tyme-container {
   border-top: 0; }
