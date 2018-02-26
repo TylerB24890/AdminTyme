@@ -14,6 +14,10 @@ body.toplevel_page_tyme .wrap > p.description {
   font-style: normal;
   margin-bottom: 15px; }
 
+body.toplevel_page_tyme .wrap span.note {
+  display: block;
+  font-size: 14px; }
+
 body.toplevel_page_tyme .wrap small {
   font-size: 14px; }
 

@@ -176,7 +176,7 @@ class Tyme_Settings {
       'id' => 'link-color',
       'type' => 'color',
       'default' => $defaults['link-color'],
-      'desc' => __('Default color for links within the body', TYME_SLUG),
+      'desc' => __('Default color for links within the body text', TYME_SLUG),
     ) );
 
     // Navigation Background
@@ -185,7 +185,7 @@ class Tyme_Settings {
       'id' => 'nav-background',
       'type' => 'color',
       'default' => $defaults['nav-background'],
-      'desc' => __('Navigation Panel Background Color', TYME_SLUG),
+      'desc' => __('Navigation Panel Background Color.', TYME_SLUG) . '<span class="note">' . __('Note: The active and hover states are generated automatically based on your chosen background color. Click \'Save Changes\' to view them.', TYME_SLUG) . '</span>',
     ) );
 
     // Navigation Font
@@ -217,7 +217,7 @@ class Tyme_Settings {
       'id' => 'nav-link-active-color',
       'type' => 'color',
       'default' => $defaults['nav-link-active-color'],
-      'desc' => __('Active Navigation Link Color', TYME_SLUG),
+      'desc' => __('Active Navigation Link Color', TYME_SLUG) . '<span class="note">' . __('Note: The active navigation link color applies <b>only</b> to the text, not the background.', TYME_SLUG) . '</span>',
     ) );
 
     // Top Admin Bar Background Color
