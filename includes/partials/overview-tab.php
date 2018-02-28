@@ -1,5 +1,5 @@
 <?php
-namespace Tyme\TymeAdmin\Core;
+namespace Tyme\TymeAdmin\Settings;
 
 /**
  * Return the Admin Tyme 'Overview' tab content

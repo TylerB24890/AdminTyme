@@ -1,6 +1,6 @@
 <?php
 
-namespace Tyme\TymeAdmin\Admin\Themes;
+namespace Tyme\TymeAdmin\Themes;
 
 class Tyme_Themes {
 

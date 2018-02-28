@@ -45,4 +45,4 @@ register_activation_hook( __FILE__, '\Tyme\TymeAdmin\Core\activate' );
 register_deactivation_hook( __FILE__, '\Tyme\TymeAdmin\Core\deactivate' );
 
 // Bootstrap
-Tyme\TymeAdmin\Core\setup();
+Tyme\TymeAdmin\setup();

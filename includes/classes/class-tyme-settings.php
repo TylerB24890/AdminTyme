@@ -1,23 +1,27 @@
 <?php
 
-namespace Tyme\TymeAdmin\Core;
+namespace Tyme\TymeAdmin\Settings;
 
 class Tyme_Settings {
 
   public static $tyme_options, $tyme_themes;
+  private static $default_font;
 
   public function __construct() {
     // Default wp-admin styles
+
+    self::$default_font = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+
     self::$tyme_options = array(
       'theme' => 'default',
     	'background' => '#f1f1f1',
       'body-font' => array(
-        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'font-family' => self::$default_font,
         'color' => '#444',
         'font-size' => '13px'
       ),
       'header-font' => array(
-        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'font-family' => self::$default_font,
         'color' => '#23282d',
       ),
     	'link-color' => '#0073aa',
@@ -27,7 +31,7 @@ class Tyme_Settings {
     	'nav-background' => '#23282d',
     	'nav-width' => '160px',
       'nav-font' => array(
-        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'font-family' => self::$default_font,
         'color' => '#eee',
         'font-size' => '14px'
       ),
@@ -40,7 +44,7 @@ class Tyme_Settings {
     	'nav-subnav-active-link-color' => '#FFF',
       'admin-bar-background' => '#23282d',
       'admin-bar-font' => array(
-        'font-family' => '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+        'font-family' => self::$default_font,
         'color' => '#eee',
       )
     );
@@ -68,19 +72,19 @@ class Tyme_Settings {
   	}
 
     if($styles['body-font']['font-family'] === 'inherit') {
-      $styles['body-font']['font-family'] = self::$tyme_options['body-font']['font-family'];
+      $styles['body-font']['font-family'] = self::$default_font;
     }
 
     if($styles['header-font']['font-family'] === 'inherit') {
-      $styles['header-font']['font-family'] = self::$tyme_options['header-font']['font-family'];
+      $styles['header-font']['font-family'] = self::$default_font;
     }
 
     if($styles['nav-font']['font-family'] === 'inherit') {
-      $styles['nav-font']['font-family'] = self::$tyme_options['nav-font']['font-family'];
+      $styles['nav-font']['font-family'] = self::$default_font;
     }
 
     if($styles['admin-bar-font']['font-family'] === 'inherit') {
-      $styles['admin-bar-font']['font-family'] = self::$tyme_options['admin-bar-font']['font-family'];
+      $styles['admin-bar-font']['font-family'] = self::$default_font;
     }
 
     return $styles;
@@ -142,48 +146,21 @@ class Tyme_Settings {
     ) );
 
     // Header Fonts
-    $panel->createOption( array(
-      'name' => __('Headers', TYME_SLUG),
+    $font_args = array(
+      'name' => 'Headers',
       'id' => 'header-font',
-      'type' => 'font',
-      'show_font_weight' => false,
-      'show_font_style' => false,
-      'show_line_height' => false,
-      'show_letter_spacing' => false,
-      'show_text_transform' => false,
-      'show_font_variant' => false,
-      'show_text_shadow' => false,
-      'show_font_size' => false,
-      'show_preview' => false,
-      'default' => array(
-        'font-family' => $defaults['header-font']['font-family'],
-        'line-height' => '1em',
-        'color' => $defaults['header-font']['color'],
-      ),
-      'desc' => __('Header Font Styles', TYME_SLUG),
-    ) );
+      'desc' => 'Header Font Styles',
+    );
+    $panel->createOption(self::_set_default_font_args($font_args));
 
     // Body Fonts
-    $panel->createOption( array(
-      'name' => __('Body Font', TYME_SLUG),
+    $font_args = array(
+      'name' => 'Body Font',
       'id' => 'body-font',
-      'type' => 'font',
-      'show_font_weight' => false,
-      'show_font_style' => false,
-      'show_line_height' => false,
-      'show_letter_spacing' => false,
-      'show_text_transform' => false,
-      'show_font_variant' => false,
-      'show_text_shadow' => false,
-      'show_preview' => false,
-      'default' => array(
-        'font-family' => $defaults['body-font']['font-family'],
-        'line-height' => '1em',
-        'font-size' => $defaults['body-font']['font-size'],
-        'color' => $defaults['body-font']['color'],
-      ),
-      'desc' => __('Body Font Styles', TYME_SLUG),
-    ) );
+      'desc' => 'Body Font Styles',
+      'show-font-size' => true,
+    );
+    $panel->createOption(self::_set_default_font_args($font_args));
 
     // Body Links
     $panel->createOption( array(
@@ -204,27 +181,12 @@ class Tyme_Settings {
     ) );
 
     // Navigation Font
-    $panel->createOption( array(
-      'name' => __('Navigation Font', TYME_SLUG),
+    $font_args = array(
+      'name' => 'Navigation Font',
       'id' => 'nav-font',
-      'type' => 'font',
-      'show_font_weight' => false,
-      'show_font_style' => false,
-      'show_line_height' => false,
-      'show_letter_spacing' => false,
-      'show_text_transform' => false,
-      'show_font_variant' => false,
-      'show_text_shadow' => false,
-      'show_font_size' => false,
-      'show_preview' => false,
-      'default' => array(
-        'font-family' => $defaults['nav-font']['font-family'],
-        'line-height' => '1em',
-        'font-size' => $defaults['nav-font']['font-size'],
-        'color' => $defaults['nav-font']['color'],
-      ),
-      'desc' => __('Navigation Font Styles', TYME_SLUG),
-    ) );
+      'desc' => 'Navigation Font Styles',
+    );
+    $panel->createOption(self::_set_default_font_args($font_args));
 
     // Active Navigation Font
     $panel->createOption( array(
@@ -245,30 +207,49 @@ class Tyme_Settings {
     ) );
 
     // Navigation Font
-    $panel->createOption( array(
-      'name' => __('Admin Bar Font', TYME_SLUG),
+    $font_args = array(
+      'name' => 'Admin Bar Font',
       'id' => 'admin-bar-font',
-      'type' => 'font',
-      'show_font_weight' => false,
-      'show_font_style' => false,
-      'show_line_height' => false,
-      'show_letter_spacing' => false,
-      'show_text_transform' => false,
-      'show_font_variant' => false,
-      'show_text_shadow' => false,
-      'show_font_size' => false,
-      'show_preview' => false,
-      'default' => array(
-        'font-family' => $defaults['admin-bar-font']['font-family'],
-        'line-height' => '1em',
-        'color' => $defaults['admin-bar-font']['color'],
-      ),
-      'desc' => __('Admin Bar Font Styles', TYME_SLUG),
-    ) );
+      'desc' => 'Admin Bar Font Styles',
+    );
+    $panel->createOption(self::_set_default_font_args($font_args));
+
+
 
     // Save Options
     $panel->createOption( array(
       'type' => 'save'
     ) );
+  }
+
+  /**
+   * Set default Font Selector arguments
+   *
+   * @param array $arg_defaults Default(optional) arguments passed to font editor
+   */
+  private static function _set_default_font_args($arg_defaults) {
+    $args = array(
+      'name' => __($arg_defaults['name'], TYME_SLUG),
+      'id' => $arg_defaults['id'],
+      'type' => 'font',
+      'show_font_weight' => (isset($arg_defaults['show-font-weight']) ? $arg_defaults['show-font-weight'] : false),
+      'show_font_style' => (isset($arg_defaults['show-font-style']) ? $arg_defaults['show-font-style'] : false),
+      'show_line_height' => (isset($arg_defaults['show-line-height']) ? $arg_defaults['show-line-height'] : false),
+      'show_letter_spacing' => (isset($arg_defaults['show-letter-spacing']) ? $arg_defaults['show-letter-spacing'] : false),
+      'show_text_transform' => (isset($arg_defaults['show-text-transform']) ? $arg_defaults['show-text-transform'] : false),
+      'show_font_variant' => (isset($arg_defaults['show-font-variant']) ? $arg_defaults['show-font-variant'] : false),
+      'show_text_shadow' => (isset($arg_defaults['show-text-shadow']) ? $arg_defaults['show-text-shadow'] : false),
+      'show_font_size' => (isset($arg_defaults['show-font-size']) ? $arg_defaults['show-font-size'] : false),
+      'show_preview' => (isset($arg_defaults['show-preview']) ? $arg_defaults['show-preview'] : false),
+      'default' => array(
+        'font-family' => (isset($arg_defaults['font-family']) ? $arg_defaults['font-family'] : self::$tyme_options[$arg_defaults['id']]['font-family']),
+        'line-height' => '1em',
+        'color' => (isset($arg_defaults['color']) ? $arg_defaults['color'] : self::$tyme_options[$arg_defaults['id']]['color']),
+        'font-size' => (isset($arg_defaults['font-size']) ? $arg_defaults['font-size'] : (isset($arg_defaults['show-font-size']) && $arg_defaults['show-font-size'] === true ? self::$tyme_options[$arg_defaults['id']]['font-size'] : '')),
+      ),
+      'desc' => __($arg_defaults['desc'], TYME_SLUG),
+    );
+
+    return $args;
   }
 }
